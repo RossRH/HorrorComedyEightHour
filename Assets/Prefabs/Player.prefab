@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 5940334268498696933}
   - component: {fileID: 7410856812184106023}
   - component: {fileID: 6612948871806839684}
+  - component: {fileID: 1970526023951691255}
   m_Layer: 14
   m_Name: Player
   m_TagString: Untagged
@@ -286,6 +287,7 @@ MonoBehaviour:
   MoveSpeedForward: 2
   MoveSpeedBackwards: 2
   RotateSpeed: 4
+  SprintSpeedUse: 1
 --- !u!58 &5940334268498696933
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -348,6 +350,18 @@ MonoBehaviour:
   - {fileID: 8411741042206376861}
   - {fileID: 5887866788153338034}
   - {fileID: 5861447559016192975}
+--- !u!114 &1970526023951691255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4516968430430889979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 757b9fb9cbf1e654886f90c7159fb328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4516968430870090664
 GameObject:
   m_ObjectHideFlags: 0
