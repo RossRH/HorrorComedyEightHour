@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using LightVolume;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Light2D))]
 public class FlickerLight : MonoBehaviour
@@ -37,9 +39,13 @@ public class FlickerLight : MonoBehaviour
         
         _light.Intensity = Mathf.Lerp (_lastIntensity, _currentIntensity, flickerTime / flickerInterval);
     }
-    
 
-    
-		
+
+    private void OnDisable()
+    {
+        _light.Intensity = _currentIntensity;
+    }
+
+
     // Update is called once per frame
 }
