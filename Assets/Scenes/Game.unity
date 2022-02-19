@@ -13793,6 +13793,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1492398394406382285, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
+      propertyPath: enemyStopRange
+      value: 4.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4516968430430889978, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
       propertyPath: m_RootOrder
       value: 1

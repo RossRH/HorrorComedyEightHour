@@ -18,6 +18,8 @@ public class Light : MonoBehaviour
     
     private Light2D _flashlight;
     private FlickerLight _flickerLight;
+
+    public float enemyStopRange = 5;
     
     void Start()
     {
@@ -26,9 +28,39 @@ public class Light : MonoBehaviour
        _flickerLight = GetComponentInChildren<FlickerLight>();
        _flickerLight.enabled = false;
     }
+
+    public bool CanSee(Transform t)
+    {
+	    Vector2 dir = t.position - transform.position;
+
+	    if (dir.magnitude > enemyStopRange)
+	    {
+		    return false;
+	    }
+
+	    float range = Mathf.Min(dir.magnitude, enemyStopRange);
+
+	    RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, range, _flashlight.LightBlockMask);
+	    bool canSee = hit.collider == null;
+
+	    if (!canSee)
+	    {
+		    return false;
+	    }
+
+	    float angle = Vector2.Angle(transform.up, dir);
+	    if (angle < _flashlight.angle * 0.5f)
+	    {
+		    return true;
+	    }
+
+	    return false;
+    }
     
     void Update()
     {
+	    
+	    
 	    if (Input.GetButtonDown("Light"))
 	    {
 		    _flashlight.SwitchLight(!on);
