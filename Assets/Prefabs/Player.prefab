@@ -38,7 +38,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1846733862}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -129,6 +129,7 @@ MonoBehaviour:
   player: {fileID: 4516968430430889978}
   RotateSpeed: 3
   WobbleAmplitude: 2
+  enemyStopRange: 5
 --- !u!1 &3246433107656064854
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,6 +261,7 @@ GameObject:
   - component: {fileID: 5940334268498696933}
   - component: {fileID: 7410856812184106023}
   - component: {fileID: 6612948871806839684}
+  - component: {fileID: 1970526023951691255}
   m_Layer: 14
   m_Name: Player
   m_TagString: Untagged
@@ -365,6 +367,19 @@ MonoBehaviour:
   - {fileID: 8411741042206376861}
   - {fileID: 5887866788153338034}
   - {fileID: 5861447559016192975}
+--- !u!114 &1970526023951691255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4516968430430889979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 757b9fb9cbf1e654886f90c7159fb328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 0}
 --- !u!1 &4516968430870090664
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,7 +405,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4516968430870090664}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.102, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4516968430430889978}
@@ -436,7 +451,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 277c91017bcaefe409e06e81cd7a700b, type: 3}
   m_Color: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
   m_FlipX: 0
   m_FlipY: 0
