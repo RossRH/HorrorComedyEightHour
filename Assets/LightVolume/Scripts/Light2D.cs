@@ -6,8 +6,10 @@ using UnityEngine;
 
 namespace LightVolume {
 	[System.Serializable]
-	public class Light2D : MonoBehaviour {
-
+	public class Light2D : MonoBehaviour
+	{
+		[SerializeField] private LayerMask _lightBlock;
+		
 		[SerializeField]
 		private MeshFilter meshFilter;
 		[SerializeField]
@@ -180,7 +182,7 @@ namespace LightVolume {
 					
 				RaycastHit2D h = new RaycastHit2D();
 				if (IsStatic) {
-					h = Physics2D.Raycast (centerPoint, ray, ray.magnitude, 1 << 13);
+					h = Physics2D.Raycast (centerPoint, ray, ray.magnitude, _lightBlock);
 				}
 				if (h.collider != null) {
 					Vector2 p = h.point;// + r / maxRay * 0.3f;

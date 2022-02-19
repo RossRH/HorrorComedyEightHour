@@ -5,6 +5,7 @@
 		_MainTex ("Texture", 2D) = "white" {}
 		_NoiseTex ("Noise Texture", 2D) = "white" {}
 		_VisTex("Visibility Texture", 2D) = "white" {}
+		_FishTankVisTex("Visibility Fish tank Texture", 2D) = "white" {}
 		_EntityTex("Entity Texture", 2D) = "white" {}
 		_VisEntityTex("Visibile Entity Texture", 2D) = "white" {}
 		//_HighlightTex("Highlight Entity Texture", 2D) = "white" {}
@@ -25,6 +26,7 @@
 		_NightVisionStrength ("Night Vision Strength", Float) = 0
 
 		[HDR]_AuraColor  ("AuraColor", Color) = (1, 1, 1, 1)
+		_FishTankColor  ("Fish Tank Color", Color) = (1, 1, 1, 1)
 	}
 	SubShader
 	{
@@ -63,6 +65,7 @@
 
 			sampler2D _MainTex;
 			sampler2D _VisTex;
+			sampler2D _FishTankVisTex;
 			sampler2D _EntityTex;
 			sampler2D _VisEntityTex;
 			sampler2D _LightTex0;
@@ -74,6 +77,7 @@
 			float _SicknessIntensity;
 			float _SicknessSpeed;
 			float4 _AuraColor;
+			float4 _FishTankColor;
 			float4 _DayColor;
 			float _RedFactor;
 			float4 _LightPos0;
@@ -166,6 +170,7 @@
 
 				float4 visEntityCol = redden(tex2D(_VisEntityTex, i.uv));
 				float4 visCol = tex2D(_VisTex, i.uv);
+				float4 visFishTankCol = tex2D(_FishTankVisTex, i.uv);
 				float4 plainBackCol = redden(tex2D(_MainTex, i.uv));
 				float4 backCol = redden(plainBackCol);
 
@@ -250,9 +255,10 @@
                 float4 HighlightCol = tex2D(_HighlightTex, i.uv);
                 float4 BlurredHighlightCol = tex2D(_BlurredHighlightTex, i.uv);
 
+                colOut = (1.0 - visFishTankCol.a) * colOut + colOut * visFishTankCol.a * _FishTankColor;
 
 				//return lerp(colOut, HighlightCol, HighlightCol.a);
-				return colOut + max(BlurredHighlightCol - HighlightCol, 0);
+				return colOut;
 
 
 			}
