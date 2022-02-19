@@ -11319,7 +11319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lightBlock:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   meshFilter: {fileID: 0}
   mesh: {fileID: 0}
   meshRenderer: {fileID: 1836329950}
@@ -13703,14 +13703,6 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 45517088}
-    - target: {fileID: 2359511856895496720, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
-      propertyPath: moveSpeed
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054546799348395143, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
-      propertyPath: m_Mass
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 5662102288174650902, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -13758,14 +13750,6 @@ PrefabInstance:
     - target: {fileID: 5662102288174650905, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 5662102288259423645, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8257665763122437077, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
-      propertyPath: m_Radius
-      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
