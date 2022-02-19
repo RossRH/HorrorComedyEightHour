@@ -14,20 +14,32 @@ public class Light : MonoBehaviour
     private float _angle;
     private float _targetAngle;
 
-    private bool on;
+    private bool on => _flashlight.IsOn;
+    
+    private Light2D _flashlight;
+    private FlickerLight _flickerLight;
     
     void Start()
     {
-	    on = true;
-       transform.parent = null;
+	    transform.parent = null;
+       _flashlight = GetComponentInChildren<Light2D>();
+       _flickerLight = GetComponentInChildren<FlickerLight>();
+       _flickerLight.enabled = false;
     }
     
     void Update()
     {
 	    if (Input.GetButtonDown("Light"))
 	    {
-		    on = !on;
-		    transform.GetChild(0).gameObject.SetActive(on);
+		    _flashlight.SwitchLight(!on);
+	    }
+
+	    if (on)
+	    {
+		    if (Random.Range(0, _flickerLight.enabled ? 300 : 600) == 0)
+		    {
+			    _flickerLight.enabled = !_flickerLight.enabled;
+		    }
 	    }
 	    
 	    
