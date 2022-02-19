@@ -16,7 +16,8 @@ public class PostProcessVisibility : MonoBehaviour {
 	public Camera visEntityCam;
 	public Camera lightCam;
 	public Camera visCam;
-
+	public Camera fishTankVisCam;
+	
 	private int width;
 	private int height;
 
@@ -33,6 +34,7 @@ public class PostProcessVisibility : MonoBehaviour {
 
 	public float dayValue;
 	public Color dayColor;
+	public Color fishTankColor;
 	
 	// Use this for initialization
 	void Awake ()
@@ -48,6 +50,7 @@ public class PostProcessVisibility : MonoBehaviour {
 	void Update () {
 		postProcessMatCopy.SetFloat ("_DayLight", dayValue);
 		postProcessMatCopy.SetColor("_DayColor", dayColor);
+		postProcessMatCopy.SetColor("_FishTankColor", fishTankColor);
 
 		//postProcessMatCopy.SetFloat ("_DayLightColorNet", 0);
 
@@ -73,12 +76,24 @@ public class PostProcessVisibility : MonoBehaviour {
 			entityCam.targetTexture = new CustomRenderTexture (width, height);
 			postProcessMatCopy.SetTexture ("_EntityTex", entityCam.targetTexture);
 
+			////////////////////////////////////////////////////////
 			if (visEntityCam.targetTexture != null) {
 				visEntityCam.targetTexture.Release ();
 			}
 
 			visEntityCam.targetTexture = new CustomRenderTexture (width, height);
 			postProcessMatCopy.SetTexture ("_VisEntityTex", visEntityCam.targetTexture);
+			///////////////////////////////////////////
+			
+			///////////////////////////////////////////////////////////
+			if (fishTankVisCam.targetTexture != null) {
+				fishTankVisCam.targetTexture.Release ();
+			}
+
+			fishTankVisCam.targetTexture = new CustomRenderTexture (width, height);
+			postProcessMatCopy.SetTexture ("_FishTankVisTex", fishTankVisCam.targetTexture);
+			///////////////////////////////////////////
+
 
 			if (visCam.targetTexture != null) {
 				visCam.targetTexture.Release ();
