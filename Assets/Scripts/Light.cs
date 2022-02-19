@@ -13,17 +13,21 @@ public class Light : MonoBehaviour
 
     private float _angle;
     private float _targetAngle;
+
+    private bool on;
     
     void Start()
     {
+	    on = true;
        transform.parent = null;
     }
     
     void Update()
     {
-	    if (Input.GetButton("Light"))
+	    if (Input.GetButtonDown("Light"))
 	    {
-		    
+		    on = !on;
+		    transform.GetChild(0).gameObject.SetActive(on);
 	    }
 	    
 	    
