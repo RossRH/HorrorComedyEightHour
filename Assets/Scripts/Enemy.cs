@@ -15,11 +15,13 @@ public class Enemy : MonoBehaviour
     [SerializeField] private LayerMask _avoidanceLayerMask;
 
     private Vector2 lastKnownPosition;
+    private CircleCollider2D _collider;
     
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _collider = GetComponent<CircleCollider2D>();
     }
 
     // Update is called once per frame
@@ -27,10 +29,10 @@ public class Enemy : MonoBehaviour
     {
 	    _rigidbody.velocity = ApplyCollisionAvoidance(GetMovementVector()).normalized * moveSpeed;
     }
+    
 
     private Vector2 ApplyCollisionAvoidance(Vector2 vec)
     {
-	    return vec;
 	    vec = vec.normalized;
 	    Vector2 dir = vec;
         
@@ -38,13 +40,26 @@ public class Enemy : MonoBehaviour
 	    float increments = 5;
 	    float angleMagnitude = increments;
 	    
+
+	    bool IsBlocked(Vector2 p, Vector2 d)
+	    {
+		    return Physics2D.Raycast(p, d, 0.5f, _avoidanceLayerMask).collider != null;
+	    }
+
+	    bool IsBlockedFullCheck(Vector2 p, Vector2 d)
+	    {
+		    Vector2 ortho = new Vector2(vec.y, -vec.x) * _collider.radius * 1.05f;
+		    
+		    return IsBlocked(p + vec * _collider.radius, d) || IsBlocked(p + ortho, d) || IsBlocked(p - ortho, d);
+	    }
+	    
 	    
 
-	    while (Physics2D.Raycast(transform.position, dir, 0.1f, _avoidanceLayerMask).collider == null && angleMagnitude <= 90)
+	    while (IsBlockedFullCheck(transform.position, dir) && angleMagnitude <= 90)
 	    {
 		    dir = vec.Rotate(angleMagnitude);
 
-		    if (Physics2D.Raycast(transform.position, dir, 0.1f, _avoidanceLayerMask).collider == null)
+		    if (IsBlockedFullCheck(transform.position, dir))
 		    {
 			    dir = vec.Rotate(-angleMagnitude);
 		    }
