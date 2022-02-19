@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
 
     private Vector3 targetDir => _player.position - transform.position;
     private Vector2 movementDir;
-    private Rigidbody _rigidbody;
+    private Rigidbody2D _rigidbody;
     public float moveSpeed;
 
     [SerializeField] private LayerMask _avoidanceLayerMask;
@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -26,17 +26,17 @@ public class Enemy : MonoBehaviour
     {
         movementDir = targetDir.normalized;
 
-        float increments = 5;
+       /* float increments = 5;
         float angleMagnitude = increments;
-        Vector2 targetNormalised = targetDir.normalized;
+        Vector2 targetNormalised = targetDir;
 
         Vector2 dir = targetNormalised;
 
-        while (Physics.Raycast(transform.position, dir, 100000, _avoidanceLayerMask) && angleMagnitude <= 90)
+        while (Physics2D.Raycast(transform.position, dir, targetDir.magnitude, _avoidanceLayerMask) && angleMagnitude <= 90)
         {
             dir = targetNormalised.Rotate(angleMagnitude);
 
-            if (Physics.Raycast(transform.position, dir, 100000, _avoidanceLayerMask))
+            if (Physics2D.Raycast(transform.position, dir, targetDir.magnitude, _avoidanceLayerMask))
             {
                 dir = targetNormalised.Rotate(-angleMagnitude);
             }
@@ -48,11 +48,13 @@ public class Enemy : MonoBehaviour
             angleMagnitude += increments;
         }
 
-        movementDir = dir;
+        movementDir = dir;*/
+        _rigidbody.velocity = movementDir * moveSpeed;
     }
 
     private void FixedUpdate()
     {
-        _rigidbody.MovePosition(_rigidbody.position + Time.fixedDeltaTime * moveSpeed * (Vector3)movementDir);
+       // _rigidbody.MovePosition(_rigidbody.position + Time.fixedDeltaTime * moveSpeed * movementDir);
+       
     }
 }

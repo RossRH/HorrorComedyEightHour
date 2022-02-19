@@ -240,10 +240,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4516968430430889978}
-  - component: {fileID: 298165004}
-  - component: {fileID: 298165005}
   - component: {fileID: 298165003}
-  - component: {fileID: 4516968430686504179}
+  - component: {fileID: 5940334268498696933}
+  - component: {fileID: 7410856812184106023}
   m_Layer: 14
   m_Name: Player
   m_TagString: Untagged
@@ -269,35 +268,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &298165004
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4516968430430889979}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 120
-  m_CollisionDetection: 2
---- !u!135 &298165005
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4516968430430889979}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &298165003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,24 +285,43 @@ MonoBehaviour:
   MoveSpeedForward: 2
   MoveSpeedBackwards: 2
   RotateSpeed: 4
---- !u!114 &4516968430686504179
-MonoBehaviour:
+--- !u!58 &5940334268498696933
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4516968430430889979}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5398322b207065343be638f8fc242b4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 5
-  MaxStamina: 100
-  HealthRegenSpeed: 1
-  StaminaRegenSpeed: 1
-  TimeAfterDamageHealingCanStart: 5
-  TimeAfterStaminaUseRegenCanStart: 2
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.2
+--- !u!50 &7410856812184106023
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4516968430430889979}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &4516968430870090664
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,18 +462,6 @@ PrefabInstance:
     - target: {fileID: 118161584824150704, guid: a440c2651dcf45f469f7a2d7b19e2a57, type: 3}
       propertyPath: m_Name
       value: Cams
-      objectReference: {fileID: 0}
-    - target: {fileID: 4385067307896930353, guid: a440c2651dcf45f469f7a2d7b19e2a57, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.294
-      objectReference: {fileID: 0}
-    - target: {fileID: 8080706606475334304, guid: a440c2651dcf45f469f7a2d7b19e2a57, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -8.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 8080706606475334304, guid: a440c2651dcf45f469f7a2d7b19e2a57, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.622
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a440c2651dcf45f469f7a2d7b19e2a57, type: 3}
