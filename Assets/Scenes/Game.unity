@@ -11357,6 +11357,7 @@ GameObject:
   - component: {fileID: 1836329949}
   - component: {fileID: 1836329951}
   - component: {fileID: 1836329950}
+  - component: {fileID: 1836329952}
   m_Layer: 8
   m_Name: Light2D
   m_TagString: Untagged
@@ -11372,7 +11373,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836329948}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.31, y: -1.15, z: 0}
+  m_LocalPosition: {x: 8.23, y: -1.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 448997859}
@@ -11448,6 +11449,21 @@ MonoBehaviour:
   IsStatic: 1
   lightMesh: {fileID: 0}
   mustDoAwake: 1
+--- !u!114 &1836329952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836329948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fe042c2f0289334d9aaa0994f44cb03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flickerInterval: 0.05
+  minIntensity: 0.85
+  maxIntensity: 1
 --- !u!1 &1873029724
 GameObject:
   m_ObjectHideFlags: 0
@@ -13651,6 +13667,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1492398394406382285, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
+      propertyPath: enemyStopRange
+      value: 4.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4516968430430889978, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -13698,38 +13718,6 @@ PrefabInstance:
     - target: {fileID: 4516968430430889979, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6612948871806839684, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
-      propertyPath: MaxStamina
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6612948871806839684, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
-      propertyPath: HealthRegenSpeed
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6612948871806839684, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
-      propertyPath: StaminaRegenSpeed
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6612948871806839684, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
-      propertyPath: TimeAfterStaminaUseRegenCanStart
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7410856812184106023, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
-      propertyPath: m_Mass
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 7410856812184106023, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
-      propertyPath: m_LinearDrag
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7410856812184106023, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
-      propertyPath: m_AngularDrag
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7410856812184106023, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
-      propertyPath: m_GravityScale
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}

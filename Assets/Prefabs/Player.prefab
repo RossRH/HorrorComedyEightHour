@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 5290007730610804430}
   - component: {fileID: 1891714333270554296}
   - component: {fileID: 6189273245698280877}
+  - component: {fileID: 4516968430686504179}
   m_Layer: 8
   m_Name: Light2D
   m_TagString: Untagged
@@ -231,6 +232,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4516968430686504179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3246433107656064854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fe042c2f0289334d9aaa0994f44cb03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flickerInterval: 0.08
+  minIntensity: 0.7
+  maxIntensity: 1
 --- !u!1 &4516968430430889979
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,6 +302,7 @@ MonoBehaviour:
   MoveSpeedForward: 2
   MoveSpeedBackwards: 2
   RotateSpeed: 4
+  SprintSpeedUse: 1
 --- !u!58 &5940334268498696933
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -314,9 +331,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 60
+  m_LinearDrag: 10
+  m_AngularDrag: 10
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 1
@@ -336,11 +353,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 5
-  MaxStamina: 100
-  HealthRegenSpeed: 0
-  StaminaRegenSpeed: 0
+  MaxStamina: 5
+  HealthRegenSpeed: 0.1
+  StaminaRegenSpeed: 2.5
   TimeAfterDamageHealingCanStart: 5
-  TimeAfterStaminaUseRegenCanStart: 2
+  TimeAfterStaminaUseRegenCanStart: 3
   StaminaRectangle: {fileID: 2039307931988214604}
   Hearts:
   - {fileID: 6584895556940918320}

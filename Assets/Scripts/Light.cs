@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using LightVolume;
 using UnityEngine;
 
 public class Light : MonoBehaviour
@@ -13,20 +14,64 @@ public class Light : MonoBehaviour
     private float _angle;
     private float _targetAngle;
 
-    private bool on;
+    private bool on => _flashlight.IsOn;
+    
+    private Light2D _flashlight;
+    private FlickerLight _flickerLight;
+
+    public float enemyStopRange = 5;
     
     void Start()
     {
-	    on = true;
-       transform.parent = null;
+	    transform.parent = null;
+       _flashlight = GetComponentInChildren<Light2D>();
+       _flickerLight = GetComponentInChildren<FlickerLight>();
+       _flickerLight.enabled = false;
+    }
+
+    public bool CanSee(Transform t)
+    {
+	    Vector2 dir = t.position - transform.position;
+
+	    if (dir.magnitude > enemyStopRange)
+	    {
+		    return false;
+	    }
+
+	    float range = Mathf.Min(dir.magnitude, enemyStopRange);
+
+	    RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, range, _flashlight.LightBlockMask);
+	    bool canSee = hit.collider == null;
+
+	    if (!canSee)
+	    {
+		    return false;
+	    }
+
+	    float angle = Vector2.Angle(transform.up, dir);
+	    if (angle < _flashlight.angle * 0.5f)
+	    {
+		    return true;
+	    }
+
+	    return false;
     }
     
     void Update()
     {
+	    
+	    
 	    if (Input.GetButtonDown("Light"))
 	    {
-		    on = !on;
-		    transform.GetChild(0).gameObject.SetActive(on);
+		    _flashlight.SwitchLight(!on);
+	    }
+
+	    if (on)
+	    {
+		    if (Random.Range(0, _flickerLight.enabled ? 300 : 600) == 0)
+		    {
+			    _flickerLight.enabled = !_flickerLight.enabled;
+		    }
 	    }
 	    
 	    

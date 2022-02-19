@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using GraveDays.Utility;
+using LightVolume;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -16,18 +17,29 @@ public class Enemy : MonoBehaviour
 
     private Vector2 lastKnownPosition;
     private CircleCollider2D _collider;
+
+    private Light _playerLight;
     
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _collider = GetComponent<CircleCollider2D>();
+        _playerLight = _player.GetComponentInChildren<Light>();
     }
 
     // Update is called once per frame
     void Update()
     {
-	    _rigidbody.velocity = ApplyCollisionAvoidance(GetMovementVector()).normalized * moveSpeed;
+	    if (_playerLight.CanSee(transform))
+	    {
+		    _rigidbody.velocity = Vector2.zero;
+	    }
+	    else
+	    {
+		    _rigidbody.velocity = ApplyCollisionAvoidance(GetMovementVector()).normalized * moveSpeed;  
+	    }
+	    
     }
     
 
