@@ -4,7 +4,7 @@
     SubShader
 	{
 		ZWrite Off
-        ZTest Always
+        ZTest Off
         Cull Off
         Lighting Off
         Fog { Mode Off }
