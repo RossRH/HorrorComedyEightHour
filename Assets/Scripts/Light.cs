@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using LightVolume;
 using UnityEngine;
 
 public class Light : MonoBehaviour
