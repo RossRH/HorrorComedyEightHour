@@ -95,7 +95,7 @@ GameObject:
   m_Layer: 8
   m_Name: Flashlight
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -127,6 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4516968430430889978}
+  RotateSpeed: 3
+  WobbleAmplitude: 2
 --- !u!1 &3246433107656064854
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f965d410a0c4f4ea5552011d784695, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lightBlock:
+    serializedVersion: 2
+    m_Bits: 0
   meshFilter: {fileID: 0}
   mesh: {fileID: 0}
   meshRenderer: {fileID: 6189273245698280877}
@@ -238,7 +243,7 @@ GameObject:
   - component: {fileID: 298165004}
   - component: {fileID: 298165005}
   - component: {fileID: 298165003}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
@@ -304,10 +309,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54a33fa42310d23408e6cf339088aaaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SprintForwardSpeed: 1.5
-  SprintBackwardSpeed: 0.75
-  MoveSpeedForward: 0.75
-  MoveSpeedBackwards: 0.5
+  SprintForwardSpeed: 3
+  SprintBackwardSpeed: 2
+  MoveSpeedForward: 2
+  MoveSpeedBackwards: 2
   RotateSpeed: 4
 --- !u!1 &4516968430870090664
 GameObject:
