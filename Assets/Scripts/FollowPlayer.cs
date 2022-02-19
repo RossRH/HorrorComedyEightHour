@@ -8,6 +8,8 @@ public class FollowPlayer : MonoBehaviour
     public Vector3 Offset;
     public Transform Follow;
 
+    public bool rotateToPayer = false;
+
     private void Start()
     {
         transform.parent = null;
@@ -17,7 +19,13 @@ public class FollowPlayer : MonoBehaviour
     {
         transform.position = Follow.position + Offset;
 
-            // transform.forward = Vector3.down;
-        transform.rotation = Quaternion.Euler(0, 0, Follow.eulerAngles.z);
+        if (rotateToPayer)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, Follow.eulerAngles.z);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 }
