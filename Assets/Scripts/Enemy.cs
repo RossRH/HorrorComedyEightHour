@@ -32,11 +32,11 @@ public class Enemy : MonoBehaviour
 
         Vector2 dir = targetNormalised;
 
-        while (Physics.Raycast(transform.position, dir, 100000, _avoidanceLayerMask) && angleMagnitude <= 90)
+        while (Physics2D.Raycast(transform.position, dir, 100000, _avoidanceLayerMask) && angleMagnitude <= 90)
         {
             dir = targetNormalised.Rotate(angleMagnitude);
 
-            if (Physics.Raycast(transform.position, dir, 100000, _avoidanceLayerMask))
+            if (Physics2D.Raycast(transform.position, dir, 100000, _avoidanceLayerMask))
             {
                 dir = targetNormalised.Rotate(-angleMagnitude);
             }
@@ -49,10 +49,12 @@ public class Enemy : MonoBehaviour
         }
 
         movementDir = dir;
+        _rigidbody.velocity = movementDir * moveSpeed;
     }
 
     private void FixedUpdate()
     {
-        _rigidbody.MovePosition(_rigidbody.position + Time.fixedDeltaTime * moveSpeed * movementDir);
+       // _rigidbody.MovePosition(_rigidbody.position + Time.fixedDeltaTime * moveSpeed * movementDir);
+       
     }
 }
