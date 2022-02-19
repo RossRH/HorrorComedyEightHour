@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 298165004}
   - component: {fileID: 298165005}
   - component: {fileID: 298165003}
+  - component: {fileID: 4516968430686504179}
   m_Layer: 14
   m_Name: Player
   m_TagString: Untagged
@@ -314,6 +315,24 @@ MonoBehaviour:
   MoveSpeedForward: 2
   MoveSpeedBackwards: 2
   RotateSpeed: 4
+--- !u!114 &4516968430686504179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4516968430430889979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5398322b207065343be638f8fc242b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 5
+  MaxStamina: 100
+  HealthRegenSpeed: 1
+  StaminaRegenSpeed: 1
+  TimeAfterDamageHealingCanStart: 5
+  TimeAfterStaminaUseRegenCanStart: 2
 --- !u!1 &4516968430870090664
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,6 +473,18 @@ PrefabInstance:
     - target: {fileID: 118161584824150704, guid: a440c2651dcf45f469f7a2d7b19e2a57, type: 3}
       propertyPath: m_Name
       value: Cams
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385067307896930353, guid: a440c2651dcf45f469f7a2d7b19e2a57, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.294
+      objectReference: {fileID: 0}
+    - target: {fileID: 8080706606475334304, guid: a440c2651dcf45f469f7a2d7b19e2a57, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 8080706606475334304, guid: a440c2651dcf45f469f7a2d7b19e2a57, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.622
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a440c2651dcf45f469f7a2d7b19e2a57, type: 3}

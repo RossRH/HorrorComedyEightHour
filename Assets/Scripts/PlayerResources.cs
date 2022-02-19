@@ -10,8 +10,8 @@ public class PlayerResources : MonoBehaviour
 	private float _health;
 	private float _stamina;
 
-	public float lastDamageTime;
-	public float lastStaminaUseTime;
+	private float lastDamageTime;
+	private float lastStaminaUseTime;
 	
 	public float HealthRegenSpeed;
 	public float StaminaRegenSpeed;
