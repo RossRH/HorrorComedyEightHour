@@ -18,7 +18,11 @@ public class PlayerResources : MonoBehaviour
 
 	public float TimeAfterDamageHealingCanStart = 5;
 	public float TimeAfterStaminaUseRegenCanStart = 2;
-	
+
+
+	public Shapes.Rectangle StaminaRectangle;
+	public List<GameObject> Hearts;
+
     void Start()
     {
 	    _health = MaxHealth;
