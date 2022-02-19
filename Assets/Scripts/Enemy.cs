@@ -9,11 +9,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Transform _player;
 
     private Vector3 targetDir => _player.position - transform.position;
-    private Vector2 movementDir;
     private Rigidbody2D _rigidbody;
     public float moveSpeed;
 
     [SerializeField] private LayerMask _avoidanceLayerMask;
+
+    private Vector2 lastKnownPosition;
     
     // Start is called before the first frame update
     void Start()
@@ -24,32 +25,54 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movementDir = targetDir.normalized;
+	    _rigidbody.velocity = ApplyCollisionAvoidance(GetMovementVector()).normalized * moveSpeed;
+    }
 
-        float increments = 5;
-        float angleMagnitude = increments;
-        Vector2 targetNormalised = targetDir;
+    private Vector2 ApplyCollisionAvoidance(Vector2 vec)
+    {
+	    return vec;
+	    vec = vec.normalized;
+	    Vector2 dir = vec;
+        
+        
+	    float increments = 5;
+	    float angleMagnitude = increments;
+	    
+	    
 
-        Vector2 dir = targetNormalised;
+	    while (Physics2D.Raycast(transform.position, dir, 0.1f, _avoidanceLayerMask).collider == null && angleMagnitude <= 90)
+	    {
+		    dir = vec.Rotate(angleMagnitude);
 
-        while (Physics2D.Raycast(transform.position, dir, 0.1f, _avoidanceLayerMask) && angleMagnitude <= 90)
-        {
-            dir = targetNormalised.Rotate(angleMagnitude);
+		    if (Physics2D.Raycast(transform.position, dir, 0.1f, _avoidanceLayerMask).collider == null)
+		    {
+			    dir = vec.Rotate(-angleMagnitude);
+		    }
+		    else
+		    {
+			    break;
+		    }
 
-            if (Physics2D.Raycast(transform.position, dir, 0.1f, _avoidanceLayerMask))
-            {
-                dir = targetNormalised.Rotate(-angleMagnitude);
-            }
-            else
-            {
-                break;
-            }
+		    angleMagnitude += increments;
+	    }
 
-            angleMagnitude += increments;
-        }
+	    return dir;
+    }
 
-        movementDir = dir.normalized;
-        _rigidbody.velocity = movementDir * moveSpeed;
+    private Vector2 GetMovementVector()
+    {
+	    RaycastHit2D hit = Physics2D.Raycast(transform.position, targetDir, targetDir.magnitude, _avoidanceLayerMask);
+	    bool canSee = hit.collider == null;
+	    
+	    
+	    if (!canSee)
+	    {
+		    return (lastKnownPosition - (Vector2)transform.position);
+	    }
+
+	    lastKnownPosition = _player.transform.position;
+
+	    return targetDir;
     }
 
     private void FixedUpdate()

@@ -13667,6 +13667,10 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 45517088}
+    - target: {fileID: 2359511856895496720, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
+      propertyPath: _avoidanceLayerMask.m_Bits
+      value: 4161
+      objectReference: {fileID: 0}
     - target: {fileID: 5662102288174650902, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
       propertyPath: m_RootOrder
       value: 2
