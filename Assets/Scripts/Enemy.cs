@@ -31,6 +31,16 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+	    if (Vector3.Distance(_player.position, transform.position) > 8)
+	    {
+		    return;
+	    }
+
+	    if (_playerLight == null)
+	    {
+		    _playerLight = _player.GetComponentInChildren<Light>();
+	    }
+	    
 	    if (_playerLight.CanSee(transform))
 	    {
 		    _rigidbody.velocity = Vector2.zero;

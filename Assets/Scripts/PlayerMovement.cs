@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(PlayerResources))]
 
@@ -54,5 +55,13 @@ public class PlayerMovement : MonoBehaviour
 
 
         _rigidbody.velocity = Vector3.zero;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.GetComponent<Enemy>())
+        {
+            SceneManager.GetActiveScene(); SceneManager.LoadScene(0);
+        }
     }
 }
