@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         bool sprint = Input.GetButton("Sprint");
 
         float moveSpeedMultiplier =  Mathf.Sign(vertical) > 0 ? (sprint ? SprintForwardSpeed : MoveSpeedForward) :  (sprint ? SprintBackwardSpeed : MoveSpeedBackwards);
-        _rigidbody.MovePosition(_rigidbody.position + transform.forward * vertical * Time.fixedDeltaTime * moveSpeedMultiplier);
-        _rigidbody.MoveRotation(_rigidbody.rotation * Quaternion.AngleAxis(horizontal * RotateSpeed , Vector3.up));
+        _rigidbody.MovePosition(_rigidbody.position + transform.up * vertical * Time.fixedDeltaTime * moveSpeedMultiplier);
+        _rigidbody.MoveRotation(_rigidbody.rotation * Quaternion.AngleAxis(horizontal * RotateSpeed , -Vector3.forward));
     }
 }
