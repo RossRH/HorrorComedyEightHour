@@ -38,6 +38,7 @@ public class PostProcessVisibility : MonoBehaviour {
 	void Awake ()
 	{
 		postProcessMatCopy = new Material(material);
+		lightCam.allowHDR = true;
 	}
 	
 	
