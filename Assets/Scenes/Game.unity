@@ -11434,7 +11434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lightBlock:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   meshFilter: {fileID: 0}
   mesh: {fileID: 0}
   meshRenderer: {fileID: 1836329950}
