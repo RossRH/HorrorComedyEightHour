@@ -9,6 +9,8 @@ namespace LightVolume {
 	public class Light2D : MonoBehaviour
 	{
 		[SerializeField] private LayerMask _lightBlock;
+
+		public LayerMask LightBlockMask => _lightBlock;
 		
 		[SerializeField]
 		private MeshFilter meshFilter;
