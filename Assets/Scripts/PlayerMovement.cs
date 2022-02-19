@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,11 +11,24 @@ public class PlayerMovement : MonoBehaviour
     public float MoveSpeedForward = 1.5f;
     public float MoveSpeedBackwards = 0.75f;
     public float RotateSpeed = 1;
+
+    private float stamina = 1;
+    private float staminaRegenSpeed = 0;
     
     private Rigidbody _rigidbody;
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        bool sprint = Input.GetButton("Sprint");
+        if (!sprint)
+        {
+            stamina += Time.deltaTime * staminaRegenSpeed;
+        }
+        
     }
 
     void FixedUpdate()
