@@ -13597,6 +13597,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6612948871806839684, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
+      propertyPath: MaxStamina
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6612948871806839684, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
+      propertyPath: HealthRegenSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6612948871806839684, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
+      propertyPath: StaminaRegenSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6612948871806839684, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
+      propertyPath: TimeAfterStaminaUseRegenCanStart
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410856812184106023, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
+      propertyPath: m_Mass
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410856812184106023, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410856812184106023, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
+      propertyPath: m_AngularDrag
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7410856812184106023, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
 --- !u!1001 &4521425583244333952
@@ -13668,8 +13700,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 45517088}
     - target: {fileID: 2359511856895496720, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
-      propertyPath: _avoidanceLayerMask.m_Bits
-      value: 4161
+      propertyPath: moveSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4054546799348395143, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
+      propertyPath: m_Mass
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5662102288174650902, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
       propertyPath: m_RootOrder

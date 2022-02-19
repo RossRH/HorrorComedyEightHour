@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(PlayerResources))]
+
 public class PlayerMovement : MonoBehaviour
 {
     public float SprintForwardSpeed = 2;
@@ -12,13 +13,19 @@ public class PlayerMovement : MonoBehaviour
     public float MoveSpeedBackwards = 0.75f;
     public float RotateSpeed = 1;
 
+
+    [Space] public float SprintSpeedUse = 1;
+    
+
     private float stamina = 1;
     private float staminaRegenSpeed = 0;
     
     private Rigidbody2D _rigidbody;
+    private PlayerResources _playerResources;
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _playerResources = GetComponent<PlayerResources>();
     }
 
     private void Update()
@@ -27,6 +34,10 @@ public class PlayerMovement : MonoBehaviour
         if (!sprint)
         {
             stamina += Time.deltaTime * staminaRegenSpeed;
+        }
+        else
+        {
+            _playerResources.UseStamina(SprintSpeedUse * Time.deltaTime);
         }
         
     }
@@ -40,5 +51,8 @@ public class PlayerMovement : MonoBehaviour
         float moveSpeedMultiplier =  Mathf.Sign(vertical) > 0 ? (sprint ? SprintForwardSpeed : MoveSpeedForward) :  (sprint ? SprintBackwardSpeed : MoveSpeedBackwards);
         _rigidbody.MovePosition(_rigidbody.position + (Vector2)transform.up * vertical * Time.fixedDeltaTime * moveSpeedMultiplier);
         _rigidbody.MoveRotation(_rigidbody.rotation - horizontal * RotateSpeed);
+
+
+        _rigidbody.velocity = Vector3.zero;
     }
 }

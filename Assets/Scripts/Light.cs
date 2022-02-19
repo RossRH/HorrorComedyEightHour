@@ -20,6 +20,12 @@ public class Light : MonoBehaviour
     
     void Update()
     {
+	    if (Input.GetButton("Light"))
+	    {
+		    
+	    }
+	    
+	    
 	    transform.position = player.position;
 	    _targetAngle = player.transform.eulerAngles.z + (Mathf.Sin(Time.time) + Mathf.Sin(Time.time*Mathf.PI) + Mathf.Sin(Time.time*5))*WobbleAmplitude;
         _angle = Mathf.LerpAngle(_angle, _targetAngle, Time.deltaTime * RotateSpeed);

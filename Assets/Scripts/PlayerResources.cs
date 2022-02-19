@@ -7,6 +7,7 @@ public class PlayerResources : MonoBehaviour
 	public float MaxHealth = 5;
 	public float MaxStamina = 100;
 
+	private float _discreteHealth;
 	private float _health;
 	private float _stamina;
 
@@ -18,17 +19,29 @@ public class PlayerResources : MonoBehaviour
 
 	public float TimeAfterDamageHealingCanStart = 5;
 	public float TimeAfterStaminaUseRegenCanStart = 2;
-
-
+	
 	public Shapes.Rectangle StaminaRectangle;
 	public List<GameObject> Hearts;
 
+	private float fullRectangle = 4;
+	
     void Start()
     {
 	    _health = MaxHealth;
 	    _stamina = MaxStamina;
-	    lastDamageTime = float.MinValue;
-	    lastStaminaUseTime = float.MinValue;
+	    lastDamageTime = 0;
+	    lastStaminaUseTime = 0;
+    }
+
+    public void UseStamina(float used)
+    {
+	    _stamina -= used;
+	    lastStaminaUseTime = Time.time;
+    }
+
+    public void Damaged(float damage)
+    {
+	    _health -= damage;
     }
     
     void Update()
@@ -40,7 +53,23 @@ public class PlayerResources : MonoBehaviour
 	    
 	    if (Time.time - lastStaminaUseTime > TimeAfterStaminaUseRegenCanStart)
 	    {
-		    _stamina = Mathf.Min(_health + StaminaRegenSpeed * Time.deltaTime, MaxStamina);
+		    _stamina = Mathf.Min(_stamina + StaminaRegenSpeed * Time.deltaTime, MaxStamina);
+	    }
+	    
+	    _discreteHealth = Mathf.Ceil(_health);
+
+	    StaminaRectangle.Width = (_stamina / MaxStamina)*4;
+
+	    for(int i = 0; i < Hearts.Count && i < MaxHealth; i++)
+	    {
+		    if (i < _discreteHealth)
+		    {
+			    Hearts[i].SetActive(true);
+		    }
+		    else
+		    {
+			    Hearts[i].SetActive(false);
+		    }
 	    }
     }
 }
