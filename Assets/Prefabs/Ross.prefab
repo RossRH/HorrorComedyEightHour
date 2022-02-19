@@ -87,7 +87,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.31
 --- !u!1 &5662102288259423644
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,7 +98,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5662102288259423645}
   - component: {fileID: 5662102288259423642}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

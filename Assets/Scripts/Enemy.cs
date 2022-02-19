@@ -112,9 +112,11 @@ public class Enemy : MonoBehaviour
 	    return targetDir;
     }
 
-    private void FixedUpdate()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-       // _rigidbody.MovePosition(_rigidbody.position + Time.fixedDeltaTime * moveSpeed * movementDir);
-       
+	    if (other.gameObject.GetComponent<WaterSplat>() != null)
+	    {
+		    Destroy(gameObject);
+	    }
     }
 }

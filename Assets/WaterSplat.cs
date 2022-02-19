@@ -5,10 +5,12 @@ using UnityEngine;
 public class WaterSplat : MonoBehaviour
 {
     public float Lifetime;
+    
     // Start is called before the first frame update
     void Start()
     {
-        DestroyAfter(Lifetime);
+
+       StartCoroutine(DestroyAfter(Lifetime));
     }
     
     void Update()

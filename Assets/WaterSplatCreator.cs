@@ -15,7 +15,7 @@ public class WaterSplatCreator : MonoBehaviour
         StartCoroutine(DestroyAfter(5f));
         while (this != null)
         {
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.5f);
             CreateSplat();
         }
 	 
