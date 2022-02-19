@@ -30,7 +30,6 @@ public class Enemy : MonoBehaviour
 
     private Vector2 ApplyCollisionAvoidance(Vector2 vec)
     {
-	    return vec;
 	    vec = vec.normalized;
 	    Vector2 dir = vec;
         
@@ -40,11 +39,11 @@ public class Enemy : MonoBehaviour
 	    
 	    
 
-	    while (Physics2D.Raycast(transform.position, dir, 0.1f, _avoidanceLayerMask).collider == null && angleMagnitude <= 90)
+	    while (Physics2D.Raycast(transform.position, dir, 0.1f, _avoidanceLayerMask).collider != null && angleMagnitude <= 90)
 	    {
 		    dir = vec.Rotate(angleMagnitude);
 
-		    if (Physics2D.Raycast(transform.position, dir, 0.1f, _avoidanceLayerMask).collider == null)
+		    if (Physics2D.Raycast(transform.position, dir, 0.1f, _avoidanceLayerMask).collider != null)
 		    {
 			    dir = vec.Rotate(-angleMagnitude);
 		    }
