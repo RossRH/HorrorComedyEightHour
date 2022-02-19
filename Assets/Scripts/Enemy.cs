@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
 
     private Vector3 targetDir => _player.position - transform.position;
     private Vector2 movementDir;
-    private Rigidbody _rigidbody;
+    private Rigidbody2D _rigidbody;
     public float moveSpeed;
 
     [SerializeField] private LayerMask _avoidanceLayerMask;
@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -53,6 +53,6 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidbody.MovePosition(_rigidbody.position + Time.fixedDeltaTime * moveSpeed * (Vector3)movementDir);
+        _rigidbody.MovePosition(_rigidbody.position + Time.fixedDeltaTime * moveSpeed * movementDir);
     }
 }
