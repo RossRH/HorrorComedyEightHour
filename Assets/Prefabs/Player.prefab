@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 298165003}
   - component: {fileID: 5940334268498696933}
   - component: {fileID: 7410856812184106023}
+  - component: {fileID: 4516968430686504179}
   m_Layer: 14
   m_Name: Player
   m_TagString: Untagged
@@ -316,12 +317,32 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &4516968430686504179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4516968430430889979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5398322b207065343be638f8fc242b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 5
+  MaxStamina: 100
+  lastDamageTime: 0
+  lastStaminaUseTime: 0
+  HealthRegenSpeed: 0
+  StaminaRegenSpeed: 0
+  TimeAfterDamageHealingCanStart: 5
+  TimeAfterStaminaUseRegenCanStart: 2
 --- !u!1 &4516968430870090664
 GameObject:
   m_ObjectHideFlags: 0

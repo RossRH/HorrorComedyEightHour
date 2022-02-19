@@ -26,17 +26,17 @@ public class Enemy : MonoBehaviour
     {
         movementDir = targetDir.normalized;
 
-       /* float increments = 5;
+        float increments = 5;
         float angleMagnitude = increments;
         Vector2 targetNormalised = targetDir;
 
         Vector2 dir = targetNormalised;
 
-        while (Physics2D.Raycast(transform.position, dir, targetDir.magnitude, _avoidanceLayerMask) && angleMagnitude <= 90)
+        while (Physics2D.Raycast(transform.position, dir, 0.1f, _avoidanceLayerMask) && angleMagnitude <= 90)
         {
             dir = targetNormalised.Rotate(angleMagnitude);
 
-            if (Physics2D.Raycast(transform.position, dir, targetDir.magnitude, _avoidanceLayerMask))
+            if (Physics2D.Raycast(transform.position, dir, 0.1f, _avoidanceLayerMask))
             {
                 dir = targetNormalised.Rotate(-angleMagnitude);
             }
@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
             angleMagnitude += increments;
         }
 
-        movementDir = dir;*/
+        movementDir = dir.normalized;
         _rigidbody.velocity = movementDir * moveSpeed;
     }
 

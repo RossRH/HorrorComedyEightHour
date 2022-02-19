@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5662102288174650902}
   - component: {fileID: 2359511856895496720}
   - component: {fileID: 4054546799348395143}
-  - component: {fileID: 3783775270181114448}
-  m_Layer: 0
+  - component: {fileID: 8257665763122437077}
+  m_Layer: 15
   m_Name: Ross
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,10 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
-  moveSpeed: 0
+  moveSpeed: 1
   _avoidanceLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
 --- !u!50 &4054546799348395143
 Rigidbody2D:
   serializedVersion: 4
@@ -66,14 +66,14 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!70 &3783775270181114448
-CapsuleCollider2D:
+  m_Constraints: 4
+--- !u!58 &8257665763122437077
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -86,8 +86,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.2, y: 1}
-  m_Direction: 0
+  serializedVersion: 2
+  m_Radius: 0.2
 --- !u!1 &5662102288259423644
 GameObject:
   m_ObjectHideFlags: 0

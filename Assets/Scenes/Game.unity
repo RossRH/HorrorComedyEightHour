@@ -13597,38 +13597,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7410856812184106023, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 298165004, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
---- !u!1 &4516968430686504178 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4516968430430889979, guid: 6b54353e4b6618148bcc17805a5ebcbe, type: 3}
-  m_PrefabInstance: {fileID: 4516968430686504177}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4516968430686504179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4516968430686504178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5398322b207065343be638f8fc242b4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 5
-  MaxStamina: 100
-  lastDamageTime: 0
-  lastStaminaUseTime: 0
-  HealthRegenSpeed: 0
-  StaminaRegenSpeed: 0
-  TimeAfterDamageHealingCanStart: 5
-  TimeAfterStaminaUseRegenCanStart: 2
 --- !u!1001 &4521425583244333952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13697,29 +13667,13 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 45517088}
-    - target: {fileID: 2359511856895496720, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
-      propertyPath: moveSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2359511856895496720, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
-      propertyPath: _avoidanceLayerMask.m_Bits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054546799348395143, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4054546799348395143, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5662102288174650902, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5662102288174650902, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.2365
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5662102288174650902, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13760,6 +13714,14 @@ PrefabInstance:
     - target: {fileID: 5662102288174650905, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662102288259423645, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8257665763122437077, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 680ee355048f83e4fb22aa4e49509324, type: 3}
