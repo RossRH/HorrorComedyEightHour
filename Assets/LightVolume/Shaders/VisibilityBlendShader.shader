@@ -255,7 +255,7 @@
                 float4 HighlightCol = tex2D(_HighlightTex, i.uv);
                 float4 BlurredHighlightCol = tex2D(_BlurredHighlightTex, i.uv);
 
-                colOut = (1.0 - visFishTankCol.a) * colOut + colOut * visFishTankCol.a * _FishTankColor;
+                colOut = (1.0 - visFishTankCol.a) * colOut + colOut * visFishTankCol.a * lerp(_FishTankColor, float4(1,1,1,1), visCol.a);
 
 				//return lerp(colOut, HighlightCol, HighlightCol.a);
 				return colOut;
